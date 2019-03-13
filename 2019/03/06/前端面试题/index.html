@@ -1,0 +1,96 @@
+<!DOCTYPE HTML><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta http-equiv="Cache-Control" content="no-siteapp"><meta http-equiv="Cache-Control" content="no-transform"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="apple-mobile-web-app-capable" content="成雨的个人博客"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no,email=no,adress=no"><meta name="browsermode" content="application"><meta name="screen-orientation" content="portrait"><link rel="dns-prefetch" href="http://blog.rensailong.top"><meta name="keywords" content="面试题"><meta name="description" content="面试题（答案尚未整理完）
+react 生命周期
+
+生命周期图
+生命周期主要分为：挂载、更新、卸载、异常（新增）
+挂载阶段
+
+constructor(初始化) 初始化state、给方法绑定this..."><meta name="robots" content="all"><meta name="google" content="all"><meta name="googlebot" content="all"><meta name="verify" content="all"><title>前端面试题 | 成雨的个人博客</title><link rel="alternate" href="/atom.xml" title="成雨的个人博客" type="application/atom+xml"><link rel="icon" href="/favicon-20190220051001892.ico"><link rel="stylesheet" href="/css/bootstrap.min.css?rev=0ee553ffb8c61021be4ac517c25c07b5"><link rel="stylesheet" href="/css/font-awesome.min.css?rev=afecc2c74d492b747ec32ef68e9d06ec"><link rel="stylesheet" href="/css/style.css?rev=20c56e3d4978a648b6298e44bd3ae711"><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?ccd98c2d3b145ffad4c50be87f40400b";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><meta name="baidu-site-verification" content="Ic3zHIPe6C"><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></head></html><!--[if lte IE 8]><style>
+    html{ font-size: 1em }
+</style><![endif]--><!--[if lte IE 9]><div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div><![endif]--><body><header class="main-header" style="background-image:url(/./img/my-banner.jpg)"><div class="main-header-box"><a class="header-avatar" href="/" title="成雨"><img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block"></a><div class="branding"><h2>你若化成风，我便化成雨</h2></div></div></header><nav class="main-navigation"><div class="container"><div class="row"><div class="col-sm-12"><div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav"><span class="sr-only"></span><i class="fa fa-bars"></i></span> <a class="navbar-brand" href="http://blog.rensailong.top">成雨的个人博客</a></div><div class="collapse navbar-collapse" id="main-menu"><ul class="menu"><li role="presentation" class="text-center"><a href="/"><i class="fa"></i> 首页</a></li><li role="presentation" class="text-center"><a href="/categories/前端/"><i class="fa"></i> 前端</a></li><li role="presentation" class="text-center"><a href="/categories/后端/"><i class="fa"></i> 后端</a></li><li role="presentation" class="text-center"><a href="/categories/工具/"><i class="fa"></i> 工具</a></li><li role="presentation" class="text-center"><a href="/archives/"><i class="fa"></i> 时间轴</a></li></ul></div></div></div></div></nav><section class="content-wrap"><div class="container"><div class="row"><main class="col-md-8 main-content m-post"><p id="process"></p><article class="post"><div class="post-head"><h1 id="前端面试题">前端面试题</h1><div class="post-meta"><span class="categories-meta fa-wrap"><i class="fa fa-folder-open-o"></i> <a class="category-link" href="/categories/前端/">前端</a></span><span class="fa-wrap"><i class="fa fa-tags"></i> <span class="tags-meta"><a class="tag-link" href="/tags/面试题/">面试题</a></span></span><span class="fa-wrap"><i class="fa fa-clock-o"></i> <span class="date-meta">2019/03/06</span></span><span class="fa-wrap"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="post-body post-content"><h4 id="面试题（答案尚未整理完）"><a href="#面试题（答案尚未整理完）" class="headerlink" title="面试题（答案尚未整理完）"></a>面试题（答案尚未整理完）</h4><ul><li><p>react 生命周期</p><ul><li>生命周期图<br><img src="https://user-gold-cdn.xitu.io/2019/3/1/16938c9025dda3af?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="react 生命周期 v16"></li><li>生命周期主要分为：<code>挂载</code>、<code>更新</code>、<code>卸载</code>、<code>异常（新增）</code></li><li><p><code>挂载</code>阶段</p><ol><li><code>constructor</code>(初始化) 初始化<code>state</code>、给方法绑定<code>this</code></li><li><p><code>static getDerivedStateFromProps</code> 使用<code>props</code>给<code>state</code>赋值,有了这个方法就不需要再用<code>componentWillReceiveProps</code>来更新props了</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    y: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromProps(props, state): State &#123;</span><br><span class="line">    <span class="keyword">if</span>(props.y !== state.y) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        y: props.y</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>render</code> 渲染组件</p></li><li><code>componentDidMount</code> 组件渲染之后调用（dom更新完之后）只调用一次</li></ol></li><li><p><code>更新</code>阶段</p><ol><li><code>static getDerivedStateFromProps</code></li><li><code>shouldComponentUpdate</code> 决定组件的更新 、性能优化</li><li><code>render</code> 渲染组件</li><li><p><code>getSnapshotBeforeUpdate</code> dom更新之前调用，此时<code>state</code>已更新； 返回值作为<code>componentDidUpdate</code>的第3个参数； 一般用于获取<code>render</code>之前的 <code>DOM</code> 数据</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  getSnapshotBeforeUpdate (prevProps, prevState): Snapshot &#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate(prevProps, prevState, snapshot) &#123;</span><br><span class="line">    <span class="comment">// snapshot 是从 getSnapshotBeforeUpdate 的返回值，默认是 null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>componentDidUpdate</code> 组件渲染之后调用（dom更新完之后）</p></li></ol></li><li><code>卸载</code>阶段<ol><li><code>componentWillUnmount</code></li></ol></li><li><p><code>异常</code></p><pre><code class="js"><span class="class"><span class="keyword">class</span> <span class="title">PotentialError</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{
+  state = {
+    error: <span class="literal">false</span>,
+  }
+  componentDidCatch(error, info) {
+    <span class="built_in">console</span>.error(info);
+    <span class="keyword">this</span>.setState({
+      error
+    });
+  }
+  render() {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.state.error) {
+      <span class="keyword">return</span> &lt;h1&gt;出错了，请打卡控制台查看详细错误！&lt;/h1&gt;;
+    }
+    <span class="keyword">return</span> <span class="keyword">this</span>.props.children;   
+  } 
+}
+
+<span class="keyword">const</span> Demo = <span class="function"><span class="params">()</span> =&gt;</span> (
+  &lt;PotentialError&gt;
+    &lt;div&gt;{{a: 1}}&lt;/div&gt;
+  &lt;<span class="regexp">/PotentialError&gt;</span>
+<span class="regexp">)</span>
+</code></pre></li></ul></li><li><p>完整的生命周期</p><pre><code class="js"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>
+
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{
+  <span class="keyword">constructor</span>(props) {
+    <span class="keyword">super</span>(props);
+    <span class="comment">// 初始化state方式（1）</span>
+    <span class="keyword">this</span>.state = {
+    }
+  }
+
+  <span class="comment">// 默认的 props 值</span>
+  <span class="keyword">static</span> defaultProps = {
+
+  }
+
+  <span class="comment">// 初始化state方式（2）</span>
+  state = {
+
+  }
+
+  <span class="comment">/**</span>
+<span class="comment">  * 作用：避免使用props给state赋值</span>
+<span class="comment">  * 挂载组件时，该静态方法会在render前执行；更新组件时，该静态方法会在shouldComponentUpdate前执行</span>
+<span class="comment">  * getDerivedStateFromProps的返回值将作为setState的参数，如果返回null，则不更新state，不能返回object 或 null 以外的值，否则会警告</span>
+<span class="comment">  */</span>
+  <span class="keyword">static</span> getDerivedStateFromProps(props, state) {
+    <span class="keyword">return</span> state
+  }
+
+  <span class="comment">// 组件树的异常捕获</span>
+  componentDidCatch(error, info) {
+
+  }
+  <span class="comment">// 组件渲染</span>
+  render() {
+
+  }
+
+  <span class="comment">// dom渲染完毕 只调用一次</span>
+  componentDidMount() {
+
+  }
+
+  <span class="comment">// 影响组件更新 性能优化</span>
+  shouldComponentUpdate(nextProps, nextState) {
+
+  }
+  <span class="comment">// dom更新之前调用，此时`state`已更新</span>
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+
+  }
+
+  <span class="comment">// dom渲染完毕</span>
+  componentDidUpdate(prevProps, prevState, snapshot) {
+
+  }
+
+  <span class="comment">// 组件卸载</span>
+  componentWillUnmount() {
+
+  }
+
+}
+</code></pre></li><li>redux用过没有</li><li>redux-trunk原理。</li><li>es6打包后装垫片文件太大，可能只用到了其中有几个功能，如何减少体积。</li><li>underscore的indexBy实现。自己如何来实现。用reduce</li><li>通过一个参数控制表单一行两列和一行一列的切换。</li><li>flex布局的垂直居中，水平居中。</li><li>antd有没用过。</li><li>做过哪个前端性能上的优化。</li><li>你的公共组件的样式是如何存放的。</li><li>取杨辉三角的m行n列的值的实现。关键代码即可。</li><li>有序链表合并。用java。不过说js也行。不要求能跑</li><li>react的循环中的key的作用。越详细越好。</li><li>setState的异步执行和同步执行。</li><li>echarts的地图上省会坐标是怎么定那个点的(我说是地图自己提供了每个城市的坐标，我感觉是他没用过就顺便问了一下)</li><li>未来的工作生活的打算</li><li>薪资和期望薪资</li><li>往年绩效</li><li>工作经历</li><li>换工作的原因</li><li>哪里关注新技术</li><li>遇到过最大的挫折</li><li>最有成就感得事</li><li>这几年工作对你的影响。</li><li>有哪些优点哪些不足</li></ul><h4 id="项目中的问题"><a href="#项目中的问题" class="headerlink" title="项目中的问题:"></a>项目中的问题:</h4><ul><li>我的jssdk的实现原理。</li><li>如何设计你的框架的。</li><li>技术为什么选react</li><li>react的生命周期</li><li>setState可以在哪里改变</li><li>setState的批量更新是怎么实现的</li><li>发起异步请求在哪些生命周期里。(要说出16版本的react里willmount可能会执行多次，这里不能发起，好像能把面试官唬住)。</li><li>子父，兄弟，父子，孙子关系节点的通讯方式。要提到context。</li><li>如何设计一个输入筛选组件 用redux和不用</li><li>提升性能方面做过什么</li><li>自己的优势劣势</li><li>pc和移动端开发上有什么区别。</li><li>flex布局用在了哪里。</li><li>有关注哪些新技术 可以说pwa webasm这些。</li><li>哪里关注新技术</li><li>项目中的问题</li><li>jssdk里的实现方式。</li><li>项目里做了什么优化</li><li>jssdk里怎么做兼容性的</li><li>jssdk的整个系统的一个流程。包括前端实现过程和后台服务过程。</li><li>为什么选react</li></ul></div><div class="post-footer"><div>转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="//github.com/aikeProject" target="_blank">Snippet</a></div><div></div></div></article><div class="article-nav prev-next-wrap clearfix"><a href="/2019/03/07/urllib/" class="pre-post btn btn-default" title="urllib"><i class="fa fa-angle-left fa-fw"></i> <span class="hidden-lg">上一篇</span> <span class="hidden-xs">urllib</span></a> <a href="/2019/03/06/beautifulsoup/" class="next-post btn btn-default" title="beautifulsoup"><span class="hidden-lg">下一篇</span> <span class="hidden-xs">beautifulsoup</span><i class="fa fa-angle-right fa-fw"></i></a></div><div id="comments"><div id="vcomments" class="valine"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="/assets/valine.min.js"></script><script>new Valine({av:AV,el:"#vcomments",appId:"4fxhv6ljJpn9Ri1OJgXCMQCH-gzGzoHsz",appKey:"ef2FdLkY74Ypgpu6k9FDcGep",placeholder:"畅所欲言",notify:!1,verify:!1,avatar:"mm",meta:"nick,mail".split(","),pageSize:"10",path:window.location.pathname,lang:"zh-CN".toLowerCase()})</script></div></main><aside id="article-toc" role="navigation" class="col-md-4"><div class="widget"><h3 class="title">文章目录</h3><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#面试题（答案尚未整理完）"><span class="toc-text">面试题（答案尚未整理完）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目中的问题"><span class="toc-text">项目中的问题:</span></a></li></ol></div></aside></div></div></section><footer class="main-footer"><div class="container"><div class="row"></div></div></footer><a id="back-to-top" class="icon-btn hide"><i class="fa fa-chevron-up"></i></a><div class="copyright"><div class="container"><div class="row"><div class="col-sm-12"><div class="busuanzi">访问量:<strong id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></strong> &nbsp; | &nbsp; 访客数:<strong id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></strong></div></div><div class="col-sm-12"><span>Copyright &copy; 2017</span> | <span>Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a></span> | <span>Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a></span></div></div></div></div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/app.js?rev=586c04b4e85931a49156b4ee90d1d3b6"></script></body>
